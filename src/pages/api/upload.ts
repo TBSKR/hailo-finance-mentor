@@ -2,11 +2,14 @@ import { NextApiRequest, NextApiResponse } from 'next';
 import multer from 'multer';
 import { Pinecone } from '@pinecone-database/pinecone';
 import { OpenAIEmbeddings } from '@langchain/openai';
-import { PDFLoader } from '@langchain/community/document_loaders/fs/pdf';
+// Corrected import path for PDFLoader - assuming it's exported from the main 'langchain' package
+import { PDFLoader } from "langchain/document_loaders/fs/pdf";
 import { RecursiveCharacterTextSplitter } from "@langchain/textsplitters";
 import path from 'path';
 import fs from 'fs';
-import { withApiKeyAuth } from '../../middleware/auth'; // Import the auth middleware
+// Corrected import path for auth middleware - assuming auth.ts is moved to src/middleware/
+import { withApiKeyAuth } from '../../middleware/auth';
+
 
 // Ensure the docs directory exists
 const docsDir = path.join(process.cwd(), 'docs');
